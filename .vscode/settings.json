@@ -21,6 +21,7 @@
     "peacock.color": "#370522",
     "cSpell.words": [
         "clsx",
-        "headlessui"
+        "headlessui",
+        "prismadb"
     ]
 }
