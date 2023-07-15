@@ -24,3 +24,4 @@ const getMessages = async (
 };
 
 export default getMessages;
+
