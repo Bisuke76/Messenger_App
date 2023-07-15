@@ -18,9 +18,9 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 }) => {
     const session = useSession();
 
-    const isOwn = session?.data?.user?.email == data?.sender?.email;
+    const isOwn = session?.data?.user?.email === data?.sender?.email;
     const seenList = (data.seen || [])
-    .filter((user) => user.email != data?.sender?.email)
+    .filter((user) => user.email !== data?.sender?.email)
     .map((user) => user.name)
     .join(', ');
 

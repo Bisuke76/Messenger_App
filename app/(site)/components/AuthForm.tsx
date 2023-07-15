@@ -20,13 +20,13 @@ const AuthForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        if (session?.status == 'authenticated') {
+        if (session?.status === 'authenticated') {
             router.push('/users');
         }
     }, [session?.status, router]);
 
     const toggleVariant = useCallback(() => {
-        if (variant == 'LOGIN') {
+        if (variant === 'LOGIN') {
             setVariant('REGISTER');
         } else {
             setVariant('LOGIN');
@@ -50,14 +50,14 @@ const AuthForm = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-        if (variant == 'REGISTER') {
+        if (variant === 'REGISTER') {
             axios.post('/api/register', data)
             .then(() => signIn('credentials, data'))
             .catch(() => toast.error('Something went wrong!'))
             .finally(() => setIsLoading(false))
         }
 
-        if (variant == 'LOGIN') {
+        if (variant === 'LOGIN') {
             signIn('credentials', {
                 ...data,
                 redirect: false
@@ -115,7 +115,7 @@ const AuthForm = () => {
                     className="space-y-6"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    {variant == 'REGISTER' && (
+                    {variant === 'REGISTER' && (
                         <Input 
                             id="name" 
                             label="Name" 
@@ -146,7 +146,7 @@ const AuthForm = () => {
                             fullWidth
                             type="submit"
                         >
-                            {variant == 'LOGIN' ? 'Sign in' : 'Register'}
+                            {variant === 'LOGIN' ? 'Sign in' : 'Register'}
                         </Button>
                     </div>
                 </form>
@@ -200,13 +200,13 @@ const AuthForm = () => {
                     text-gray-500
                 ">
                     <div>
-                        {variant == 'LOGIN' ? 'New to Messenger?' : 'Already have an account?'}
+                        {variant === 'LOGIN' ? 'New to Messenger?' : 'Already have an account?'}
                     </div>
                     <div
                         onClick={toggleVariant}
                         className="underline cursor-pointer"
                     >
-                        {variant == 'LOGIN' ? 'Create an account' : 'Login'}
+                        {variant === 'LOGIN' ? 'Create an account' : 'Login'}
                     </div>
 
                 </div>

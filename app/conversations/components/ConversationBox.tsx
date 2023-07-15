@@ -50,7 +50,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         }
 
         return seenArray
-        .filter((user) => user.email == userEmail).length != 0;
+        .filter((user) => user.email === userEmail).length != 0;
     }, [userEmail, lastMessage]);
 
     const lastMessageText = useMemo(() => {
